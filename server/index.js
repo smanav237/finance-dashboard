@@ -5,6 +5,10 @@ import cors from "cors";
 import dotenv from "dotenv";
 import helmet from "helmet";
 import morgan from "morgan";
+import { kpis } from "./data/data.js";
+import KPI from "./models/KPI.js";
+import kpiRoutes from './routes/kpi.js'
+
 
 /* CONFIGURATIONS */
 dotenv.config();
@@ -17,5 +21,20 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cors());
 
+/* Routes*/
+app.use("/kpi", kpiRoutes);
 
-console.log("hello")
+/*Mongoose Setup */
+const PORT = process.env.PORT || 9000;
+mongoose
+  .connect(process.env.MONGO_URL, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  })
+  .then(async () => {
+    app.listen(PORT, () => console.log(`Server Port: ${PORT}`));
+    
+    
+
+  })
+  .catch((error) => console.log(`${error} did not connect`));
