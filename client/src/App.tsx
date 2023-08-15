@@ -5,7 +5,7 @@ import {useMemo} from 'react'
 import { themeSettings } from './theme'
 import Navbar from './scenes/navbar'
 import Dashboard from './scenes/dashboard'
-
+import Predictions from './scenes/predictions'
 function App() {
   const theme = useMemo(() => createTheme(themeSettings), []);  // empty because need only one time render
     return (
@@ -19,7 +19,7 @@ function App() {
                 <Route path="/" element={<Dashboard/>}/>
                 <Route
                 path="/predictions"
-                element={<div>Predictions page</div>}
+                element={<Predictions/>}
                 />
               </Routes>
             </Box>

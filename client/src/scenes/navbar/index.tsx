@@ -1,6 +1,6 @@
 import {useState} from 'react'
 import { Link } from 'react-router-dom'
-import {Box,Typography, useTheme} from '@mui/material'
+import {Box,Button,Typography, useTheme} from '@mui/material'
 import FlexBetween from '../../components/FlexBetween'
 import MonetizationOnIcon from '@mui/icons-material/MonetizationOn';
 
@@ -28,31 +28,31 @@ const Navbar = (props: Props) => {
 {/* RIGHT SIDE */}
       <FlexBetween gap="2rem">
         
-        <Box sx={{ "&:hover": { color: palette.primary[100] } }}>
+        <Button color="primary">
           <Link
             to="/"
             onClick={() => setSelected("dashboard")}
             style={{
-              color: selected === "dashboard" ? "inherit" : palette.grey[700],
+              color: selected === "dashboard" ? "inherit" : palette.grey[600],
               textDecoration: "inherit",
             }}
           >
-            dashboard
+            Dashboard
           </Link>
-        </Box>
+        </Button>
         
-        <Box sx={{ "&:hover": { color: palette.primary[100] } }}>
+        <Button color="primary">
           <Link
             to="/predictions"
             onClick={() => setSelected("predictions")}
             style={{
-              color: selected === "predictions" ? "inherit" : palette.grey[700],
+              color: selected === "predictions" ? "inherit" : palette.grey[600],
               textDecoration: "inherit",
             }}
           >
-            predictions
+            Predictions
           </Link>
-        </Box>
+        </Button>
     
       </FlexBetween>
     
