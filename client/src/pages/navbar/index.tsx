@@ -26,7 +26,7 @@ const Navbar = (props: Props) => {
       </FlexBetween>
       
 {/* RIGHT SIDE */}
-      <FlexBetween gap="1rem">
+      <FlexBetween gap="0.45rem">
         
         <Button color="primary">
           <Link
