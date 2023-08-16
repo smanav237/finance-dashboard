@@ -57,14 +57,19 @@ const Predictions = () => {
         <Button
           onClick={() => setIsPredictions(!isPredictions)}
           sx={{
-            color: palette.grey[900],
-            backgroundColor: palette.grey[700],
+            color: palette.grey[100],
+            backgroundColor: "#b04238",
+            "&:hover": {
+              backgroundColor: '#991f17'
+            },
+          
             boxShadow: "0.1rem 0.1rem 0.1rem 0.1rem rgba(0,0,0,.4)",
           }}
         >
           Show Predicted Revenue for Next Year
         </Button>
       </FlexBetween>
+      
       <ResponsiveContainer width="100%" height="100%">
         <LineChart
           data={formattedData}
@@ -76,14 +81,21 @@ const Predictions = () => {
           }}
         >
           <CartesianGrid strokeDasharray="3 3" stroke={palette.grey[800]} />
-          <XAxis dataKey="name" tickLine={false} style={{ fontSize: "10px" }}>
+          <XAxis 
+            dataKey="name" 
+            axisLine={{ strokeWidth: "4px" }}
+            tickLine={false} 
+            stroke={palette.grey[700]}
+            style={{ fontSize: "13px" }}
+            >
             <Label value="Month" offset={-5} position="insideBottom" />
           </XAxis>
           <YAxis
             domain={[12000, 26000]}
-            axisLine={{ strokeWidth: "0" }}
-            style={{ fontSize: "10px" }}
+            axisLine={{ strokeWidth: "4px" }}
+            style={{ fontSize: "13px" }}
             tickFormatter={(v) => `$${v}`}
+            stroke={palette.grey[700]}
           >
             <Label
               value="Revenue in USD"
@@ -104,7 +116,8 @@ const Predictions = () => {
           <Line
             type="monotone"
             dataKey="Regression Line"
-            stroke="#8884d8"
+            stroke="#b04238"
+            strokeWidth="3px"
             dot={false}
           />
           {isPredictions && (

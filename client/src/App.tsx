@@ -3,9 +3,9 @@ import { createTheme } from '@mui/material/styles'
 import { Box, CssBaseline, ThemeProvider } from '@mui/material'
 import {useMemo} from 'react'
 import { themeSettings } from './theme'
-import Navbar from './scenes/navbar'
-import Dashboard from './scenes/dashboard'
-import Predictions from './scenes/predictions'
+import Navbar from './pages/navbar'
+import Dashboard from './pages/dashboard'
+import Predictions from './pages/predictions'
 function App() {
   const theme = useMemo(() => createTheme(themeSettings), []);  // empty because need only one time render
     return (
@@ -13,7 +13,7 @@ function App() {
         <BrowserRouter>
           <ThemeProvider theme = {theme}>
             <CssBaseline/>     {/* removes initail basic css */}
-            <Box width="100%" height="100%" padding="1rem 2rem 4rem 2rem">
+            <Box sx={{width:"100%", height:"100%", p:'1rem 2rem 4rem 2rem', border:"solid yellow"}}>
               <Navbar/>
               <Routes>
                 <Route path="/" element={<Dashboard/>}/>
