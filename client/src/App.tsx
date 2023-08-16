@@ -13,7 +13,7 @@ function App() {
         <BrowserRouter>
           <ThemeProvider theme = {theme}>
             <CssBaseline/>     {/* removes initail basic css */}
-            <Box sx={{width:"100%", height:"100%", p:'1rem 2rem 4rem 2rem', border:"solid yellow"}}>
+            <Box sx={{width:"100%", height:"100%", p:'1rem 2rem 4rem 2rem'}}>
               <Navbar/>
               <Routes>
                 <Route path="/" element={<Dashboard/>}/>
